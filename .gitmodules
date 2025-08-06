@@ -2,3 +2,7 @@
 	path = device-tree-overlays-optologic
 	url = https://github.com/optologic/device-tree-overlays-optologic.git
 	branch = linux-toradex-ti-6.6.y
+[submodule "linux-toradex"]
+	path = linux-toradex
+	url = https://git.toradex.com/linux-toradex.git
+	branch = toradex_ti-linux-6.6.y
