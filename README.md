@@ -18,6 +18,12 @@ For example:
  - [`torizon-ti-7.x.y`](https://github.com/optologic/torizon-optologic/tree/torizon-ti-7.x.y) for the Toradex SoMs based on TI AM62x SoC
  - [`torizon-nxp-7.x.y`](https://github.com/optologic/torizon-optologic/tree/torizon-nxp-7.x.y) for the Toradex SoMs based on NXP i.MX 7ULP SoC
 
+You must also clone the submodules:
+
+```bash
+git clone -b <branch_name> --recurse-submodules https://github.com/optologic/torizon-optologic.git
+```
+
 ## Supported Hardware
 
 We currently support the following Toradex SoMs:
