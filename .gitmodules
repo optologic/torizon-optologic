@@ -1,0 +1,4 @@
+[submodule "linux-toradex"]
+	path = linux-toradex
+	url = https://git.toradex.com/linux-toradex.git
+	branch = toradex_6.6-2.2.x-imx
