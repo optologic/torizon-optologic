@@ -37,11 +37,11 @@ These may be combined with the following OPTO Logic displays:
 
 You should first select the Torizon Core Builder configuration file
 corresponding to your hardware. For example, for the Verdin AM62 with a
-7-inch display, you would use the `verdin-am62-7-inch.yaml` file.
+7-inch display, you would use the `verdin-am62_optologic_panel-cap-touch-7inch-lvds.yaml` file.
 
 ```bash
 # Example for Verdin AM62 with OPTO Logic 7-inch display
-torizoncore-builder build --file verdin-am62-7-inch.yaml
+torizoncore-builder build --file verdin-am62_optologic_panel-cap-touch-7inch-lvds.yaml
 ```
 
 If you have more specific needs, you are welcome to extend or import the
