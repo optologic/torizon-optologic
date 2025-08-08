@@ -60,6 +60,29 @@ For instance, you may copy the
 your Tezi media (USB stick, SD card, etc.) and boot your Toradex SoM to install
 it via the GUI.
 
+## Testing the Display
+
+The Torizon image is very minimal and doesn't include a graphical server without
+an additional docker application. You may run one of the [Torizon Weston debian
+containers](https://developer.toradex.com/torizon/application-development/provided-containers/list-of-container-images-for-torizon)
+to test the display. Example for the Verdin i.MX8MP:
+
+```bash
+docker run -d --rm \
+   --name weston \
+   --privileged \
+   --device=/dev/dri \
+   --device=/dev/input \
+   -v /tmp:/tmp \
+   -v /run/udev:/run/udev \
+   -v /var/run/dbus:/var/run/dbus \
+   -v /etc:/etc \
+   -e XDG_RUNTIME_DIR=/tmp \
+   --entrypoint=weston \
+   torizon/weston-imx8:4 \
+   --backend=drm-backend.so --idle-time=0 --log=/tmp/weston.log
+```
+
 ## Contribute or Contact
 
 Please submit any patches and bug reports about this repository to the maintainer:
