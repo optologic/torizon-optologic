@@ -15,8 +15,8 @@ Please follow the link to set up the Torizon Core Builder environment.
 Once you have installed the Torizon Core Builder, you must checkout the
 appropriate branch for your hardware and Torizon version on this repository.
 For example:
- - `torizon-ti-7.x.y` for the Toradex SoMs based on TI AM62x SoC
- - `torizon-nxp-7.x.y` for the Toradex SoMs based on NXP i.MX 7ULP SoC
+ - [`torizon-ti-7.x.y`](https://github.com/optologic/torizon-optologic/tree/torizon-ti-7.x.y) for the Toradex SoMs based on TI AM62x SoC
+ - [`torizon-nxp-7.x.y`](https://github.com/optologic/torizon-optologic/tree/torizon-nxp-7.x.y) for the Toradex SoMs based on NXP i.MX 7ULP SoC
 
 ## Supported Hardware
 
