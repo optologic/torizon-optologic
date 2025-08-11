@@ -1,0 +1,26 @@
+# Verdin i.MX8MP Toradex Easy Installer Configuration with OPTO Logic 5" Display and Touchscreen
+input:
+  easy-installer:
+    toradex-feed:
+      version: "7.3.0"
+      release: quarterly
+      machine: verdin-imx8mp
+      distro:  torizon
+      variant: torizon-docker
+      build-number: "18"
+customization:
+  device-tree:
+    include-dirs:
+      - linux-toradex/include
+      - linux-toradex/arch/arm64/boot/dts/freescale
+      - device-tree-overlays-optologic
+    overlays:
+      remove:
+        - verdin-imx8mp_hdmi_overlay.dtbo
+        - verdin-imx8mp_dsi-to-hdmi_overlay.dtbo
+      add:
+        - device-tree-overlays-optologic/verdin-imx8mp_optologic_panel-cap-touch-5inch-lvds_overlay.dts
+output:
+  easy-installer:
+    local: build/torizon_verdin-imx8mp_optologic_panel-cap-touch-5inch-lvds_Tezi_7.3.0
+    name: "Toradex Verdin i.MX8MP with OPTO Logic 5inch Display and Touchscreen"
