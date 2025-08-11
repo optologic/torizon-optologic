@@ -1,10 +1,10 @@
-# Toradex Easy Installer Configuration with OPTO Logic 7inch Display and Touchscreen for verdin-imx8mp
+# Toradex Easy Installer Configuration with OPTO Logic ${DISPLAY} Display and Touchscreen for ${MACHINE}
 input:
   easy-installer:
     toradex-feed:
       version: "7.3.0"
       release: quarterly
-      machine: verdin-imx8mp
+      machine: ${MACHINE}
       distro: torizon
       variant: torizon-docker
       build-number: "18"
@@ -19,8 +19,8 @@ customization:
         - verdin-imx8mp_hdmi_overlay.dtbo
         - verdin-imx8mp_dsi-to-hdmi_overlay.dtbo
       add:
-        - device-tree-overlays-optologic/verdin-imx8mp_optologic_panel-cap-touch-7inch-lvds_overlay.dts
+        - device-tree-overlays-optologic/${MACHINE}_optologic_panel-cap-touch-${DISPLAY}-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_verdin-imx8mp_optologic_panel-cap-touch-7inch-lvds_Tezi_7.3.0
-    name: "Toradex verdin-imx8mp with OPTO Logic 7inch Display and Touchscreen"
+    local: build/torizon_${MACHINE}_optologic_panel-cap-touch-${DISPLAY}-lvds_Tezi_7.3.0
+    name: "Toradex ${MACHINE} with OPTO Logic ${DISPLAY} Display and Touchscreen"
