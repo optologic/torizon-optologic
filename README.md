@@ -31,7 +31,9 @@ We currently support the following Toradex SoMs:
  - `verdin-imx8mp`
 
 These may be combined with the following OPTO Logic displays:
+ - `5-inch` with capacitive touchscreen
  - `7-inch` with capacitive touchscreen
+ - `10-inch` with capacitive touchscreen
 
 ## Building the Torizon Core image
 
