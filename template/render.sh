@@ -13,7 +13,7 @@ DISPLAYS=(
 )
 
 # Paths
-TPL=${TPL:-template/torizon-dtb-overlay-nxp.sed.yaml.tpl}
+TPL=${TPL:-template/torizon-dtb-overlay-nxp.yaml.tpl}
 OUTDIR=${OUTDIR:-.}
 
 # Generate all combinations

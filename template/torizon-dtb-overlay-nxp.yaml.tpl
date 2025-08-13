@@ -16,8 +16,8 @@ customization:
       - device-tree-overlays-optologic
     overlays:
       remove:
-        - verdin-imx8mp_hdmi_overlay.dtbo
-        - verdin-imx8mp_dsi-to-hdmi_overlay.dtbo
+        - ${MACHINE}_hdmi_overlay.dtbo
+        - ${MACHINE}_dsi-to-hdmi_overlay.dtbo
       add:
         - device-tree-overlays-optologic/${MACHINE}_optologic_panel-cap-touch-${DISPLAY}-lvds_overlay.dts
 output:
