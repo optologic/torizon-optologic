@@ -1,4 +1,4 @@
-# Verdin AM62 Toradex Easy Installer Configuration with OPTO Logic 7" Display and Touchscreen
+# Toradex Easy Installer Configuration with OPTO Logic 7inch Display and Touchscreen for verdin-am62
 
 input:
   easy-installer:
@@ -6,7 +6,7 @@ input:
       version: "7.3.0"
       release: quarterly
       machine: verdin-am62
-      distro:  torizon
+      distro: torizon
       variant: torizon-docker
       build-number: "18"
 
@@ -25,4 +25,4 @@ customization:
 output:
   easy-installer:
     local: build/torizon_verdin-am62_optologic_panel-cap-touch-7inch-lvds_Tezi_7.3.0
-    name: "Toradex Verdin AM62 with OPTO Logic 7inch Display and Touchscreen"
+    name: "Toradex verdin-am62 with OPTO Logic 7inch Display and Touchscreen"
