@@ -1,0 +1,57 @@
+name: Torizon Optologic CI
+
+on:
+  push:
+    branches:
+      - torizon-nxp-7.x.y
+      - torizon-ti-7.x.y
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Builds are expensive, discard the older ones on this github branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-torizon:
+    name: Build Toradex Torizon BSP
+    runs-on: [self-hosted, cqfd, fast]
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      matrix:
+        machine: [verdin-am62, verdin-imx8mp]
+        display: [5inch, 7inch, 10inch]
+    env:
+      TORIZON_CORE_BUILDER_VERSION: 3.13.0
+
+    steps:
+      - name: Checkout torizon-optologic
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.machine == 'verdin-am62' && 'torizon-ti-7.x.y' || 'torizon-nxp-7.x.y' }}
+          # Cloning the submodules is super slow, but we don't cleanup the git repository, so they are kept on our self-hosted runner
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: Install Torizon-core builder
+        run: |
+          mkdir -p tcbdir
+          cd tcbdir
+          wget https://raw.githubusercontent.com/toradex/tcb-env-setup/master/tcb-env-setup.sh
+          set +e -x
+          source tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
+
+      - name: Torizon build
+        # This command corresponds to the torizoncore-builder alias without --it
+        run: docker run --rm -v /deploy -v "$(pwd)":/workdir -v storage:/storage -v /var/run/docker.sock:/var/run/docker.sock --network=host $(tcb_dynamic_params) torizon/torizoncore-builder:3 build --force --file ${{ matrix.machine }}_optologic_panel-cap-touch-${{ matrix.display }}-lvds.yaml
+
+      - name: Cleanup workspace
+        if: always()
+        run: |
+          rm -rf tcbdir
+          rm -rf build
