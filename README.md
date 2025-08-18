@@ -3,6 +3,9 @@
 This repository contains the Torizon core builder configurations for Optologic
 displays on Toradex SoMs.
 
+[![Torizon TI Optologic CI Build](https://github.com/optologic/torizon-optologic/actions/workflows/torizon-optologic-ci.yml/badge.svg?branch=torizon-ti-7.x.y&event=push)](https://github.com/optologic/torizon-optologic/actions/workflows/torizon-optologic-ci.yml)
+[![Torizon NXP Optologic CI Build](https://github.com/optologic/torizon-optologic/actions/workflows/torizon-optologic-ci.yml/badge.svg?branch=torizon-nxp-7.x.y&event=push)](https://github.com/optologic/torizon-optologic/actions/workflows/torizon-optologic-ci.yml)
+
 ## Setting up Torizon Core Builder
 
 This repository provides Torizon configurations for building Torizon Core
