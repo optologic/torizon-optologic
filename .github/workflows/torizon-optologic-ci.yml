@@ -3,8 +3,7 @@ name: Torizon Optologic CI
 on:
   push:
     branches:
-      - torizon-nxp-7.x.y
-      - torizon-ti-7.x.y
+      - '*-nxp-*'
   workflow_dispatch:
 
 permissions:
@@ -24,7 +23,7 @@ jobs:
         shell: bash
     strategy:
       matrix:
-        machine: [verdin-am62, verdin-imx8mp]
+        machine: [verdin-imx8mp]
         display: [5inch, 7inch, 10inch]
     env:
       TORIZON_CORE_BUILDER_VERSION: 3.13.0
@@ -33,7 +32,6 @@ jobs:
       - name: Checkout torizon-optologic
         uses: actions/checkout@v4
         with:
-          ref: ${{ matrix.machine == 'verdin-am62' && 'torizon-ti-7.x.y' || 'torizon-nxp-7.x.y' }}
           # Cloning the submodules is super slow, but we don't cleanup the git repository, so they are kept on our self-hosted runner
           submodules: 'recursive'
           fetch-depth: 0
