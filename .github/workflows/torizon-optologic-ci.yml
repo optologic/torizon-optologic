@@ -47,6 +47,8 @@ jobs:
           source tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
 
       - name: Torizon build
+        # 5inch screen on imx8mp is delivered as a binary Torizon core image (requires a kernel patch)
+        if: ${{ !(matrix.machine == 'verdin-imx8mp' && matrix.display == '5inch') }}
         # This command corresponds to the torizoncore-builder alias without --it
         run: docker run --rm -v /deploy -v "$(pwd)":/workdir -v storage:/storage -v /var/run/docker.sock:/var/run/docker.sock --network=host $(tcb_dynamic_params) torizon/torizoncore-builder:3 build --force --file ${{ matrix.machine }}_optologic_panel-cap-touch-${{ matrix.display }}-lvds.yaml
 

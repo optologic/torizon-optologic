@@ -19,6 +19,10 @@ OUTDIR=${OUTDIR:-.}
 # Generate all combinations
 for m in "${MACHINES[@]}"; do
   for d in "${DISPLAYS[@]}"; do
+    # Skip 5inch for verdin-imx8mp (delivered as a binary Torizon core image)
+    if [[ "$m" == "verdin-imx8mp" && "$d" == "5inch" ]]; then
+      continue
+    fi
     out="$OUTDIR/${m}_optologic_panel-cap-touch-${d}-lvds.yaml"
     MACHINE="$m" DISPLAY="$d" envsubst '${MACHINE} ${DISPLAY}' < "$TPL" > "$out"
     echo "Rendered $out"
