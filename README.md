@@ -38,6 +38,12 @@ These may be combined with the following OPTO Logic displays:
  - `7-inch` with capacitive touchscreen
  - `10-inch` with capacitive touchscreen
 
+**NOTE:** The Verdin i.MX8MP SoC support for the 5-inch display is delivered as a binary
+Torizon Core image instead of a torizoncore-builder configuration like the rest of these configurations.
+You can [download our latest image built through the CI](https://github.com/optologic/meta-optologic/releases). If you want to regularly keep this
+image updated, you'll have to regularly build it. Follow the documentation of our [meta-optologic](https://github.com/optologic/meta-optologic) to do so.
+(This image requires a [kernel patch](https://developer.toradex.com/linux-bsp/application-development/multimedia/display-output-resolution-and-timings-linux/#verdin-imx8m-plus-lvds-known-issues) which is not supported by torizoncore-builder).
+
 ## Building the Torizon Core image
 
 You should first select the Torizon Core Builder configuration file
