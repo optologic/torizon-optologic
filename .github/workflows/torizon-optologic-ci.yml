@@ -52,6 +52,5 @@ jobs:
 
       - name: Cleanup workspace
         if: always()
-        run: |
-          rm -rf tcbdir
-          rm -rf build
+        # Use a privileged container to cleanup root-owned files from torizoncore-builder
+        run: docker run --rm --privileged -v "$(pwd)":/work alpine:3 sh -c 'rm -rf /work/tcbdir /work/build'
