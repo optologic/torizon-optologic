@@ -1,4 +1,4 @@
-name: Torizon Optologic CI
+name: Torizon NXP Optologic CI
 
 on:
   push:
