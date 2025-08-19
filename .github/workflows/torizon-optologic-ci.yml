@@ -1,4 +1,4 @@
-name: Torizon Optologic CI
+name: Torizon TI Optologic CI
 
 on:
   push:
