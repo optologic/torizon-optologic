@@ -1,0 +1,27 @@
+# Toradex Easy Installer Configuration with OPTO Logic 5inch Display and Touchscreen for colibri-imx8x
+input:
+  easy-installer:
+    toradex-feed:
+      version: "7.3.0"
+      release: quarterly
+      machine: colibri-imx8x
+      distro: torizon
+      variant: torizon-docker
+      build-number: "18"
+customization:
+  device-tree:
+    include-dirs:
+      - linux-toradex/include
+      - linux-toradex/arch/arm64/boot/dts/freescale
+      - device-tree-overlays-optologic
+    custom: "linux-toradex/arch/arm64/boot/dts/freescale/imx8qxp-colibri-iris-v2.dts"
+    overlays:
+      remove:
+        - colibri-imx8x_hdmi_overlay.dtbo
+        - colibri-imx8x_dsi-to-hdmi_overlay.dtbo
+      add:
+        - device-tree-overlays-optologic/colibri-imx8x_optologic_panel-cap-touch-5inch-lvds_overlay.dts
+output:
+  easy-installer:
+    local: build/torizon_colibri-imx8x_optologic_panel-cap-touch-5inch-lvds_Tezi_7.3.0
+    name: "Toradex colibri-imx8x with OPTO Logic 5inch Display and Touchscreen"
