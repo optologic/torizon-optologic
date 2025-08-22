@@ -23,7 +23,7 @@ jobs:
         shell: bash
     strategy:
       matrix:
-        machine: [verdin-imx8mp, colibri-imx8x]
+        machine: [verdin-imx8mp, verdin-imx8mm, colibri-imx8x]
         display: [5inch, 7inch, 10inch]
     env:
       TORIZON_CORE_BUILDER_VERSION: 3.13.0
