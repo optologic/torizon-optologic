@@ -4,6 +4,7 @@ set -euo pipefail
 # Machines and displays to generate. Edit these arrays to add/remove combinations.
 MACHINES=(
   verdin-imx8mp
+  colibri-imx8x
 )
 
 DISPLAYS=(
@@ -11,6 +12,11 @@ DISPLAYS=(
   7inch
   10inch
 )
+
+# Optional BASE_DEVICETREE per machine
+declare -A BASE_DEVICETREE_ARRAY
+BASE_DEVICETREE_ARRAY["colibri-imx8x"]='custom: "linux-toradex/arch/arm64/boot/dts/freescale/imx8qxp-colibri-iris-v2.dts"'
+BASE_DEVICETREE_ARRAY["verdin-imx8mp"]='' # None: keep the default
 
 # Paths
 TPL=${TPL:-template/torizon-dtb-overlay-nxp.yaml.tpl}
@@ -24,7 +30,9 @@ for m in "${MACHINES[@]}"; do
       continue
     fi
     out="$OUTDIR/${m}_optologic_panel-cap-touch-${d}-lvds.yaml"
-    MACHINE="$m" DISPLAY="$d" envsubst '${MACHINE} ${DISPLAY}' < "$TPL" > "$out"
+    BASE_DEVICETREE="${BASE_DEVICETREE_ARRAY["$m"]}"
+    env MACHINE="$m" DISPLAY="$d" BASE_DEVICETREE="$BASE_DEVICETREE" \
+      envsubst '${MACHINE} ${DISPLAY} ${BASE_DEVICETREE}' < "$TPL" > "$out"
     echo "Rendered $out"
   done
 done

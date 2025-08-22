@@ -14,6 +14,7 @@ customization:
       - linux-toradex/include
       - linux-toradex/arch/arm64/boot/dts/freescale
       - device-tree-overlays-optologic
+    ${BASE_DEVICETREE}
     overlays:
       remove:
         - ${MACHINE}_hdmi_overlay.dtbo
