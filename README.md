@@ -36,11 +36,11 @@ We currently support the following Toradex SoMs:
  - `colibri-imx8x` (Requires the Iris v2.0 carrier board)
 
 These may be combined with the following OPTO Logic displays:
- - `5-inch` with capacitive touchscreen
- - `7-inch` with capacitive touchscreen
- - `10-inch` with capacitive touchscreen
+ - 5 inches (SCX0500132GGC06) with capacitive touchscreen (ILI2131)
+ - 7 inches (SCX0700117GGC03) with capacitive touchscreen (ILI2117A)
+ - 10.1 inches (SCX1001511GGC49) with capacitive touchscreen (ILI2511)
 
-**NOTE:** The Verdin i.MX8MP SoC support for the 5-inch display is delivered as a binary
+**NOTE:** The Verdin i.MX8MP SoC support for the 5" display is delivered as a binary
 Torizon Core image instead of a torizoncore-builder configuration like the rest of these configurations.
 You can [download our latest image built through the CI](https://github.com/optologic/meta-optologic/releases). If you want to regularly keep this
 image updated, you'll have to regularly build it. Follow the documentation of our [meta-optologic](https://github.com/optologic/meta-optologic) to do so.
@@ -50,11 +50,11 @@ image updated, you'll have to regularly build it. Follow the documentation of ou
 
 You should first select the Torizon Core Builder configuration file
 corresponding to your hardware. For example, for the Verdin AM62 with a
-7-inch display, you would use the `verdin-am62_optologic_panel-cap-touch-7inch-lvds.yaml` file.
+7-inch display, you would use the `verdin-am62_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds.yaml` file.
 
 ```bash
 # Example for Verdin AM62 with OPTO Logic 7-inch display
-torizoncore-builder build --file verdin-am62_optologic_panel-cap-touch-7inch-lvds.yaml
+torizoncore-builder build --file verdin-am62_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds.yaml
 ```
 
 If you have more specific needs, you are welcome to extend or import the
@@ -69,7 +69,7 @@ this image using [Toradex Easy Installer
 other method you prefer.
 
 For instance, you may copy the
-`build/torizon_verdin-am62_optologic_panel-cap-touch-7inch-lvds_Tezi_7.3.0` on
+`build/torizon_verdin-am62_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_Tezi_7.3.0` on
 your Tezi media (USB stick, SD card, etc.) and boot your Toradex SoM to install
 it via the GUI.
 
