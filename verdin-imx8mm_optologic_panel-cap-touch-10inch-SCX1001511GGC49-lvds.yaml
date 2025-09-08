@@ -1,4 +1,4 @@
-# Toradex Easy Installer Configuration with OPTO Logic 10inch Display and Touchscreen for verdin-imx8mm
+# Toradex Easy Installer Configuration with OPTO Logic 10inch-SCX1001511GGC49 Display and Touchscreen for verdin-imx8mm
 input:
   easy-installer:
     toradex-feed:
@@ -20,8 +20,8 @@ customization:
         - verdin-imx8mm_hdmi_overlay.dtbo
         - verdin-imx8mm_dsi-to-hdmi_overlay.dtbo
       add:
-        - device-tree-overlays-optologic/verdin-imx8mm_optologic_panel-cap-touch-10inch-lvds_overlay.dts
+        - device-tree-overlays-optologic/verdin-imx8mm_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_verdin-imx8mm_optologic_panel-cap-touch-10inch-lvds_Tezi_7.3.0
-    name: "Toradex verdin-imx8mm with OPTO Logic 10inch Display and Touchscreen"
+    local: build/torizon_verdin-imx8mm_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_Tezi_7.3.0
+    name: "Toradex verdin-imx8mm with OPTO Logic 10inch-SCX1001511GGC49 Display and Touchscreen"

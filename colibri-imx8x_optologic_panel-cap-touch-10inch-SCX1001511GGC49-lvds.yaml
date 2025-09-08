@@ -1,4 +1,4 @@
-# Toradex Easy Installer Configuration with OPTO Logic 7inch Display and Touchscreen for colibri-imx8x
+# Toradex Easy Installer Configuration with OPTO Logic 10inch-SCX1001511GGC49 Display and Touchscreen for colibri-imx8x
 input:
   easy-installer:
     toradex-feed:
@@ -20,8 +20,8 @@ customization:
         - colibri-imx8x_hdmi_overlay.dtbo
         - colibri-imx8x_dsi-to-hdmi_overlay.dtbo
       add:
-        - device-tree-overlays-optologic/colibri-imx8x_optologic_panel-cap-touch-7inch-lvds_overlay.dts
+        - device-tree-overlays-optologic/colibri-imx8x_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_colibri-imx8x_optologic_panel-cap-touch-7inch-lvds_Tezi_7.3.0
-    name: "Toradex colibri-imx8x with OPTO Logic 7inch Display and Touchscreen"
+    local: build/torizon_colibri-imx8x_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_Tezi_7.3.0
+    name: "Toradex colibri-imx8x with OPTO Logic 10inch-SCX1001511GGC49 Display and Touchscreen"
