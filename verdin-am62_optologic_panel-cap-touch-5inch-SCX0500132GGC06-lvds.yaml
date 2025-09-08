@@ -1,4 +1,4 @@
-# Toradex Easy Installer Configuration with OPTO Logic 5inch Display and Touchscreen for verdin-am62
+# Toradex Easy Installer Configuration with OPTO Logic 5inch-SCX0500132GGC06 Display and Touchscreen for verdin-am62
 
 input:
   easy-installer:
@@ -20,9 +20,9 @@ customization:
       remove:
         - verdin-am62_dsi-to-hdmi_overlay.dtbo
       add:
-        - device-tree-overlays-optologic/verdin-am62_optologic_panel-cap-touch-5inch-lvds_overlay.dts
+        - device-tree-overlays-optologic/verdin-am62_optologic_panel-cap-touch-5inch-SCX0500132GGC06-lvds_overlay.dts
 
 output:
   easy-installer:
-    local: build/torizon_verdin-am62_optologic_panel-cap-touch-5inch-lvds_Tezi_7.3.0
-    name: "Toradex verdin-am62 with OPTO Logic 5inch Display and Touchscreen"
+    local: build/torizon_verdin-am62_optologic_panel-cap-touch-5inch-SCX0500132GGC06-lvds_Tezi_7.3.0
+    name: "Toradex verdin-am62 with OPTO Logic 5inch-SCX0500132GGC06 Display and Touchscreen"

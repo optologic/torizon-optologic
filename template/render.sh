@@ -7,9 +7,9 @@ MACHINES=(
 )
 
 DISPLAYS=(
-  5inch
-  7inch
-  10inch
+  5inch-SCX0500132GGC06
+  7inch-SCX0700117GGC03
+  10inch-SCX1001511GGC49
 )
 
 # Paths
