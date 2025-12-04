@@ -1,0 +1,27 @@
+# Toradex Easy Installer Configuration with OPTO Logic 7inch-SCX0700117GGC03 Display and Touchscreen for verdin-imx95
+input:
+  easy-installer:
+    toradex-feed:
+      version: "7.4.0"
+      release: quarterly
+      machine: verdin-imx95
+      distro: torizon
+      variant: torizon-docker
+      build-number: "28"
+customization:
+  device-tree:
+    include-dirs:
+      - linux-toradex/include
+      - linux-toradex/arch/arm64/boot/dts/freescale
+      - device-tree-overlays-optologic
+    
+    overlays:
+      remove:
+        - verdin-imx95_hdmi_overlay.dtbo
+        - verdin-imx95_dsi-to-hdmi_overlay.dtbo
+      add:
+        - device-tree-overlays-optologic/verdin-imx95_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_overlay.dts
+output:
+  easy-installer:
+    local: build/torizon_verdin-imx95_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_Tezi_7.4.0
+    name: "Toradex verdin-imx95 with OPTO Logic 7inch-SCX0700117GGC03 Display and Touchscreen"
