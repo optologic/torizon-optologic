@@ -6,6 +6,7 @@ MACHINES=(
   colibri-imx8x
   verdin-imx8mp
   verdin-imx8mm
+  verdin-imx95
 )
 
 DISPLAYS=(
@@ -19,6 +20,7 @@ declare -A BASE_DEVICETREE_ARRAY
 BASE_DEVICETREE_ARRAY["colibri-imx8x"]='custom: "linux-toradex/arch/arm64/boot/dts/freescale/imx8qxp-colibri-iris-v2.dts"'
 BASE_DEVICETREE_ARRAY["verdin-imx8mp"]='' # None: keep the default
 BASE_DEVICETREE_ARRAY["verdin-imx8mm"]='' # None: keep the default
+BASE_DEVICETREE_ARRAY["verdin-imx95"]='' # None: keep the default
 
 # Paths
 TPL=${TPL:-template/torizon-dtb-overlay-nxp.yaml.tpl}
