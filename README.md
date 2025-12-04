@@ -33,6 +33,7 @@ We currently support the following Toradex SoMs:
  - `verdin-am62`
  - `verdin-imx8mp`
  - `verdin-imx8mm` (Requires the [Verdin DSI to LVDS adapter](https://www.toradex.com/accessories/verdin-dsi-to-lvds-adapter) with a compatible carrier board)
+ - `verdin-imx95`
  - `colibri-imx8x` (Requires the Iris v2.0 carrier board)
 
 These may be combined with the following OPTO Logic displays:
