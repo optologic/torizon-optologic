@@ -1,0 +1,25 @@
+# Self-hosted runners are automatically removed after 14 days without connecting to Github actions.
+# This weekly workflow will ensure the runner is kept even during periods without active development.
+# https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/remove-runners
+
+name: Keep Github runner alive
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'  # Every monday at 10:00 AM
+
+permissions:
+  contents: read
+
+jobs:
+  keep-alive:
+    name: Keep alive
+    runs-on: [self-hosted, cqfd, fast]
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Keep Github runner alive
+        run: |
+          echo "Keeping the runner alive!"
