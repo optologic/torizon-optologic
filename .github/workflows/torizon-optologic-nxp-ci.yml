@@ -48,7 +48,7 @@ jobs:
         # The docker command corresponds to the torizoncore-builder alias without --it
         run: |
           set +e -x
-          source tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
+          source tcbdir/tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
           docker run --rm -v /deploy -v "$(pwd)":/workdir -v storage:/storage -v /var/run/docker.sock:/var/run/docker.sock --network=host $(tcb_dynamic_params) torizon/torizoncore-builder:3 build --force --file ${{ matrix.machine }}_optologic_panel-cap-touch-${{ matrix.display }}-lvds.yaml
 
       - name: Cleanup workspace
