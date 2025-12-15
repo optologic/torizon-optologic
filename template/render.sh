@@ -4,6 +4,7 @@ set -euo pipefail
 # Machines and displays to generate. Edit these arrays to add/remove combinations.
 MACHINES=(
   verdin-am62
+  verdin-am62p
 )
 
 DISPLAYS=(
