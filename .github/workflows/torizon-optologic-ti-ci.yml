@@ -41,8 +41,6 @@ jobs:
           mkdir -p tcbdir
           cd tcbdir
           wget https://raw.githubusercontent.com/toradex/tcb-env-setup/master/tcb-env-setup.sh
-          set +e -x
-          source tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
 
       - name: Torizon build
         # This command corresponds to the torizoncore-builder alias without --it
@@ -51,4 +49,7 @@ jobs:
       - name: Cleanup workspace
         if: always()
         # Use a privileged container to cleanup root-owned files from torizoncore-builder
-        run: docker run --rm --privileged -v "$(pwd)":/work alpine:3 sh -c 'rm -rf /work/tcbdir /work/build'
+        run: |
+          set +e -x
+          source tcbdir/tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
+          docker run --rm --privileged -v "$(pwd)":/work alpine:3 sh -c 'rm -rf /work/tcbdir /work/build'
