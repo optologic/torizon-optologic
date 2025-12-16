@@ -44,12 +44,12 @@ jobs:
 
       - name: Torizon build
         # This command corresponds to the torizoncore-builder alias without --it
-        run: docker run --rm -v /deploy -v "$(pwd)":/workdir -v storage:/storage -v /var/run/docker.sock:/var/run/docker.sock --network=host $(tcb_dynamic_params) torizon/torizoncore-builder:${TORIZON_CORE_BUILDER_VERSION} build --force --file ${{ matrix.machine }}_optologic_panel-cap-touch-${{ matrix.display }}-lvds.yaml
+        run: |
+          set +e -x
+          source tcbdir/tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
+          docker run --rm -v /deploy -v "$(pwd)":/workdir -v storage:/storage -v /var/run/docker.sock:/var/run/docker.sock --network=host $(tcb_dynamic_params) torizon/torizoncore-builder:${TORIZON_CORE_BUILDER_VERSION} build --force --file ${{ matrix.machine }}_optologic_panel-cap-touch-${{ matrix.display }}-lvds.yaml
 
       - name: Cleanup workspace
         if: always()
         # Use a privileged container to cleanup root-owned files from torizoncore-builder
-        run: |
-          set +e -x
-          source tcbdir/tcb-env-setup.sh -t ${TORIZON_CORE_BUILDER_VERSION}
-          docker run --rm --privileged -v "$(pwd)":/work alpine:3 sh -c 'rm -rf /work/tcbdir /work/build'
+        run: docker run --rm --privileged -v "$(pwd)":/work alpine:3 sh -c 'rm -rf /work/tcbdir /work/build'
