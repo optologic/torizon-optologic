@@ -31,7 +31,7 @@ git clone -b <branch_name> --recurse-submodules https://github.com/optologic/tor
 
 We currently support the following Toradex SoMs:
  - `verdin-am62`
- - `verdin-am62p`
+ - `verdin-am62p` (Note that the Mallow V1.1C carrier board is incompatible with the Verdin AM62P V1.0B. See [the discussion](https://community.toradex.com/t/verdin-am62p-reset-state-behavior/29528) in the Toradex Community Forum for more details)
  - `verdin-imx8mp`
  - `verdin-imx8mm` (Requires the [Verdin DSI to LVDS adapter](https://www.toradex.com/accessories/verdin-dsi-to-lvds-adapter) with a compatible carrier board)
  - `verdin-imx95`
