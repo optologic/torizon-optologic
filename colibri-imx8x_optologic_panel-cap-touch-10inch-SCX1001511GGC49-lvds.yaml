@@ -2,12 +2,12 @@
 input:
   easy-installer:
     toradex-feed:
-      version: "7.3.0"
+      version: "7.5.0"
       release: quarterly
       machine: colibri-imx8x
       distro: torizon
       variant: torizon-docker
-      build-number: "18"
+      build-number: "30"
 customization:
   device-tree:
     include-dirs:
@@ -23,5 +23,5 @@ customization:
         - device-tree-overlays-optologic/colibri-imx8x_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_colibri-imx8x_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_Tezi_7.3.0
+    local: build/torizon_colibri-imx8x_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_Tezi_7.5.0
     name: "Toradex colibri-imx8x with OPTO Logic 10inch-SCX1001511GGC49 Display and Touchscreen"

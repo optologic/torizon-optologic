@@ -2,12 +2,12 @@
 input:
   easy-installer:
     toradex-feed:
-      version: "7.4.0"
+      version: "7.5.0"
       release: quarterly
       machine: verdin-imx95
       distro: torizon
       variant: torizon-docker
-      build-number: "28"
+      build-number: "30"
 customization:
   device-tree:
     include-dirs:
@@ -23,5 +23,5 @@ customization:
         - device-tree-overlays-optologic/verdin-imx95_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_verdin-imx95_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_Tezi_7.4.0
+    local: build/torizon_verdin-imx95_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_Tezi_7.5.0
     name: "Toradex verdin-imx95 with OPTO Logic 7inch-SCX0700117GGC03 Display and Touchscreen"
