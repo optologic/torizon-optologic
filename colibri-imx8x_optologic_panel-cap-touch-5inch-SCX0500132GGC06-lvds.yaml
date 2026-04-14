@@ -2,7 +2,7 @@
 input:
   easy-installer:
     toradex-feed:
-      version: "7.3.0"
+      version: "7.6.0-devel-202603"
       release: quarterly
       machine: colibri-imx8x
       distro: torizon
@@ -23,5 +23,5 @@ customization:
         - device-tree-overlays-optologic/colibri-imx8x_optologic_panel-cap-touch-5inch-SCX0500132GGC06-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_colibri-imx8x_optologic_panel-cap-touch-5inch-SCX0500132GGC06-lvds_Tezi_7.3.0
+    local: build/torizon_colibri-imx8x_optologic_panel-cap-touch-5inch-SCX0500132GGC06-lvds_Tezi_7.6.0-devel-202603
     name: "Toradex colibri-imx8x with OPTO Logic 5inch-SCX0500132GGC06 Display and Touchscreen"

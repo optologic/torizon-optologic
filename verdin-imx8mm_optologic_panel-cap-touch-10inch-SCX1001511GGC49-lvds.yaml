@@ -2,7 +2,7 @@
 input:
   easy-installer:
     toradex-feed:
-      version: "7.3.0"
+      version: "7.6.0-devel-202603"
       release: quarterly
       machine: verdin-imx8mm
       distro: torizon
@@ -23,5 +23,5 @@ customization:
         - device-tree-overlays-optologic/verdin-imx8mm_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_verdin-imx8mm_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_Tezi_7.3.0
+    local: build/torizon_verdin-imx8mm_optologic_panel-cap-touch-10inch-SCX1001511GGC49-lvds_Tezi_7.6.0-devel-202603
     name: "Toradex verdin-imx8mm with OPTO Logic 10inch-SCX1001511GGC49 Display and Touchscreen"
