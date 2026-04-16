@@ -103,3 +103,28 @@ docker run -d --rm \
 Please submit any patches and bug reports about this repository to the maintainer:
 
 Maintainer: Opto Logic S.A. <support@optologic.ch>
+
+## CI
+
+This repository includes CI pipelines to automatically build Torizon Core images
+for the supported hardware and Torizon versions. The CI pipelines are triggered
+on every push to the repository, and the resulting images are published as
+artifacts of the CI run.
+
+### Torizon Update Checker
+
+An automatic workflow is running every week (on Monday) to check for new Torizon
+versions and create a pull request with the updated configurations if necessary.
+You can also trigger this workflow manually from the "Actions" tab of this
+repository by selecting the "check Torizon updates" workflow and clicking on
+"Run workflow". This will create a pull request with the updated configurations
+if there are any updates available.
+
+### Release CI
+
+A release workflow could be triggered manually from the "Actions" tab of this
+repository by selecting the "Torizon Optologic release" workflow and clicking on
+"Run workflow". This will create a tag on each branch with the format:
+`torizon-<manufacturer>-<torizon_version>-optologic-<major>.≤minor>` for example:
+`torizon-ti-7.3.0-optologic-1.0` and publish the corresponding sources as
+release assets on GitHub.
