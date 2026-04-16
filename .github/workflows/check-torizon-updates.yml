@@ -76,7 +76,7 @@ jobs:
               # Description
               This pull request updates the Toradex revision to the ${{steps.check-for-toradex-revision-updates.outputs.latest_stable_tag}} version and the corresponding Torizon Core Builder version.
               ${{ steps.pr_template.outputs.body }}
-          branch: toradex-${{ matrix.manufacturer }}-manifest-update/${{steps.check-for-toradex-revision-updates.outputs.latest_stable_tag}}
+          branch: torizon-${{ matrix.manufacturer }}-update/${{steps.check-for-toradex-revision-updates.outputs.latest_stable_tag}}
           signoff: true
 
       - name: Output pull request details
