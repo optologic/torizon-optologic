@@ -3,12 +3,12 @@
 input:
   easy-installer:
     toradex-feed:
-      version: "7.3.0"
+      version: "7.6.0-devel-202603"
       release: quarterly
       machine: verdin-am62
       distro: torizon
       variant: torizon-docker
-      build-number: "18"
+      build-number: "36"
 
 customization:
   device-tree:
@@ -24,5 +24,5 @@ customization:
 
 output:
   easy-installer:
-    local: build/torizon_verdin-am62_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_Tezi_7.3.0
+    local: build/torizon_verdin-am62_optologic_panel-cap-touch-7inch-SCX0700117GGC03-lvds_Tezi_7.6.0-devel-202603
     name: "Toradex verdin-am62 with OPTO Logic 7inch-SCX0700117GGC03 Display and Touchscreen"
