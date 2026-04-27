@@ -42,11 +42,11 @@ These may be combined with the following OPTO Logic displays:
  - 7 inches (SCX0700117GGC03) with capacitive touchscreen (ILI2117A)
  - 10.1 inches (SCX1001511GGC49) with capacitive touchscreen (ILI2511)
 
-**NOTE:** The Verdin i.MX8MP SoC support for the 5" display is delivered as a binary
-Torizon Core image instead of a torizoncore-builder configuration like the rest of these configurations.
+**NOTE:** The Verdin i.MX8MP SoC support is delivered as binary Torizon Core
+images instead of a torizoncore-builder configuration like the rest of these configurations.
 You can [download our latest image built through the CI](https://github.com/optologic/meta-optologic/releases). If you want to regularly keep this
 image updated, you'll have to regularly build it. Follow the documentation of our [meta-optologic](https://github.com/optologic/meta-optologic) to do so.
-(This image requires a [kernel patch](https://developer.toradex.com/linux-bsp/application-development/multimedia/display-output-resolution-and-timings-linux/#verdin-imx8m-plus-lvds-known-issues) which is not supported by torizoncore-builder).
+(These images require a [kernel patch](https://developer.toradex.com/linux-bsp/application-development/multimedia/display-output-resolution-and-timings-linux/#verdin-imx8m-plus-lvds-known-issues) which is not supported by torizoncore-builder).
 
 ## Building the Torizon Core image
 
