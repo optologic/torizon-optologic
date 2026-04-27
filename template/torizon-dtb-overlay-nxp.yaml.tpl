@@ -2,7 +2,7 @@
 input:
   easy-installer:
     toradex-feed:
-      version: "${TORADEX_BSP_VERSION}"
+      version: "7.6.0-devel-202603"
       release: quarterly
       machine: ${MACHINE}
       distro: torizon
@@ -23,5 +23,5 @@ customization:
         - device-tree-overlays-optologic/${MACHINE}_optologic_panel-cap-touch-${DISPLAY}-lvds_overlay.dts
 output:
   easy-installer:
-    local: build/torizon_${MACHINE}_optologic_panel-cap-touch-${DISPLAY}-lvds_Tezi_${TORADEX_BSP_VERSION}
+    local: build/torizon_${MACHINE}_optologic_panel-cap-touch-${DISPLAY}-lvds_Tezi_7.6.0-devel-202603
     name: "Toradex ${MACHINE} with OPTO Logic ${DISPLAY} Display and Touchscreen"
