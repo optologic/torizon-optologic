@@ -13,7 +13,7 @@ TORADEX_BRANCH="scarthgap-7.x.y"
 LINUX_RECIPE_NAME="linux-toradex-ti"
 
 latest_stable_tag=$(git ls-remote --tags https://git.toradex.com/toradex-manifest.git \
-    | awk -F/ '{print $NF}' | sort -V | tail -n 1) || {
+    | awk -F/ '{print $NF}' | grep -v '\-devel' | sort -V | tail -n 1) || {
     echo -e "Failed to fetch the latest stable tag from the Toradex manifest repository.\n"
     exit 1
 }
