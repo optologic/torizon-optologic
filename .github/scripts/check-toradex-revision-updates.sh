@@ -34,15 +34,22 @@ if [ "$latest_stable_tag" != "$current_tag" ]; then
         exit 1
     }
 
-    URL="https://git.toradex.com/toradex-manifest.git/tree/bsp/pinned-tdx.xml?h=$latest_stable_tag"
-    meta_toradex_nxp_commit=$(curl -fsSL "$URL" \
+    git_cache_dir=$(mktemp -d)
+    trap 'rm -rf "$git_cache_dir"' EXIT
+
+    git clone --quiet --depth 1 --branch "$latest_stable_tag" \
+        https://git.toradex.com/toradex-manifest.git "$git_cache_dir/toradex-manifest" || {
+        echo -e "Failed to clone the Toradex manifest repository.\n"
+        exit 1
+    }
+
+    meta_toradex_nxp_commit=$(git -C "$git_cache_dir/toradex-manifest" \
+        show HEAD:bsp/pinned-tdx.xml \
     | awk '
-        /meta-toradex-nxp\.git/ {found=1}
-        found && /revision=/ {
+        /name="meta-toradex-nxp\.git"/ {
             match($0, /revision="[^"]+"/)
             if (RSTART > 0) {
-                rev = substr($0, RSTART+10, RLENGTH-11)
-                print rev
+                print substr($0, RSTART + 10, RLENGTH - 11)
                 exit
             }
         }
@@ -50,17 +57,41 @@ if [ "$latest_stable_tag" != "$current_tag" ]; then
         echo -e "Failed to fetch the meta-toradex-nxp commit hash from the Toradex manifest repository.\n"
         exit 1
     }
-
-    URL="https://git.toradex.com/meta-toradex-nxp.git/tree/recipes-kernel/linux?id=$meta_toradex_nxp_commit"
-    LINUX_RECIPE=$(curl -fsSL "$URL" | grep -o $LINUX_RECIPE_NAME'_[^<"]*\.bb' | cut -d'?' -f1 | sort -u | sort -V | tail -n1) || {
-        echo -e "Failed to fetch the linux-toradex recipe name from the meta-toradex-nxp repository.\n"
+    [ -n "$meta_toradex_nxp_commit" ] || {
+        echo -e "Failed to find the meta-toradex-nxp commit hash in the Toradex manifest.\n"
         exit 1
     }
 
+    git init --quiet "$git_cache_dir/meta-toradex-nxp"
+    git -C "$git_cache_dir/meta-toradex-nxp" remote add origin \
+        https://git.toradex.com/meta-toradex-nxp.git
+    git -C "$git_cache_dir/meta-toradex-nxp" fetch --quiet --depth 1 origin \
+        "$meta_toradex_nxp_commit" || {
+        echo -e "Failed to fetch the pinned meta-toradex-nxp revision.\n"
+        exit 1
+    }
 
-    URL="https://git.toradex.com/meta-toradex-nxp.git/tree/recipes-kernel/linux/$LINUX_RECIPE?id=$meta_toradex_nxp_commit"
-    linux_toradex_nxp_commit=$(curl -fsSL "$URL" | awk -F'"' '/^SRCREV_machine/ {print $2; exit}') || {
+    LINUX_RECIPE=$(git -C "$git_cache_dir/meta-toradex-nxp" ls-tree -r --name-only \
+        FETCH_HEAD recipes-kernel/linux \
+    | awk -F/ '{print $NF}' \
+    | grep -E "^${LINUX_RECIPE_NAME}[^/]+\\.bb$" \
+    | sort -V | tail -n1) || {
+        echo -e "Failed to fetch the linux-toradex recipe name from the meta-toradex-nxp repository.\n"
+        exit 1
+    }
+    [ -n "$LINUX_RECIPE" ] || {
+        echo -e "Failed to find a linux-toradex recipe in the meta-toradex-nxp repository.\n"
+        exit 1
+    }
+
+    linux_toradex_nxp_commit=$(git -C "$git_cache_dir/meta-toradex-nxp" \
+        show "FETCH_HEAD:recipes-kernel/linux/$LINUX_RECIPE" \
+    | awk -F'"' '/^SRCREV_machine[[:space:]]*=/ {print $2; exit}') || {
         echo -e "Failed to fetch the linux-toradex-nxp commit hash from the meta-toradex-nxp repository.\n"
+        exit 1
+    }
+    [ -n "$linux_toradex_nxp_commit" ] || {
+        echo -e "Failed to find the linux-toradex-nxp commit hash in the recipe.\n"
         exit 1
     }
 
