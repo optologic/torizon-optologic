@@ -10,7 +10,7 @@ set -euo pipefail
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 
 latest_stable_tag=$(git ls-remote --tags https://github.com/torizon/torizoncore-builder.git \
-    | awk -F/ '{print $NF}' | sort -V | tail -n 1) || {
+    | awk -F/ '!/\^\{\}$/ {print $NF}' | sort -V | tail -n 1) || {
     echo -e "Failed to fetch the latest stable tag from the torizoncore-builder repository.\n"
     exit 1
 }
